@@ -1,0 +1,29 @@
+import numpy as np
+m=int(input())
+tr=[]
+ro=[]
+co=[]
+s=int(m)
+while(s>0):
+    n=int(input())
+    l=[]
+    k=[]
+    R=0
+    C=0
+    for i in range(n):
+        l= list(map(int, input().split()))
+        if(len(l)!=len(set(l))):
+            R=R+1
+        k.append(l)
+    a=np.array(k)    
+    b=a.transpose()
+    for i in range(len(b)):
+        if(len(b[i])!=len(set(b[i]))):
+            C=C+1
+    v=a.trace()
+    tr.append(v)
+    ro.append(R)
+    co.append(C)
+    s=s-1
+for i in range(m):
+    print("case #"+str(i+1)+":",tr[i],ro[i],co[i])
